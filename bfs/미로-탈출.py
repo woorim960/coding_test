@@ -1,3 +1,4 @@
+# 큐 구현을 위한 모듈 포함
 from collections import deque
 
 ''' n행 m열 입력받기 '''
