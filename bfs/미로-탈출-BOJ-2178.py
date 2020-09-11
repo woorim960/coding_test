@@ -4,20 +4,20 @@
 from collections import deque
 
 ''' n행 m열 입력받기 '''
-# n, m = map(int, input().split())
-n, m = 5, 6
+n, m = map(int, input().split())
+# n, m = 5, 6
 
 ''' 데이터 삽입 '''
-# graph = []
-# for _ in range(n) :
-#   graph.append(list(map(int, input().split())))
-graph = [
-  [1, 0, 1, 0, 1, 0],
-  [1, 1, 1, 1, 1, 1],
-  [0, 0, 0, 0, 0, 1],
-  [1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1],
-]
+graph = []
+for _ in range(n) :
+  graph.append(list(map(int, list(input()))))
+# graph = [
+#   [1, 0, 1, 0, 1, 0],
+#   [1, 1, 1, 1, 1, 1],
+#   [0, 0, 0, 0, 0, 1],
+#   [1, 1, 1, 1, 1, 1],
+#   [1, 1, 1, 1, 1, 1],
+# ]
 
 # 상, 하, 좌, 우 이동 경로
 dx = [-1, 1, 0, 0]
