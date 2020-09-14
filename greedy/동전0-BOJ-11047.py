@@ -15,7 +15,7 @@
 # ]
 
 # 동전 개수와 돈 입력받기
-N, K = map(int, input().split())
+N, money = map(int, input().split())
 # 동전 입력받기
 standard = [int(input()) for _ in range(N)]
 
