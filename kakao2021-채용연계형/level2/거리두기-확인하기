@@ -1,0 +1,58 @@
+function solution(places) {
+    const result = [];
+    for (const place of places) {
+        if (isBeWell(place)) result.push(1);
+        else result.push(0);
+    }
+    return result;
+}
+
+function isBeWell(place) {
+    for (let i = 0; i < place.length; i++) {
+        for (let j = 0; j < 5; j++) {
+            if (isP(place[i][j])) {
+                if (i > 0 && isP(place[i - 1][j])) return false;
+                if (i < 4 && isP(place[i + 1][j])) return false;
+                if (j > 0 && isP(place[i][j - 1])) return false;
+                if (j < 4 && isP(place[i][j + 1])) return false;
+                    
+                if (i > 0 && isTable(place[i - 1][j])) {
+                    const [dx, dy] = [i - 1, j];
+                    if (dx > 0 && isP(place[dx - 1][dy])) return false;
+                    if (dy > 0 && isP(place[dx][dy - 1])) return false;
+                    if (dy < 4 && isP(place[dx][dy + 1])) return false;
+                }
+                
+                if (i < 4 && isTable(place[i + 1][j])) {
+                    const [dx, dy] = [i + 1, j];
+                    if (dx < 4 && isP(place[dx + 1][dy])) return false;
+                    if (dy > 0 && isP(place[dx][dy - 1])) return false;
+                    if (dy < 4 && isP(place[dx][dy + 1])) return false;
+                }
+                
+                if (j > 0 && isTable(place[i][j - 1])) {
+                    const [dx, dy] = [i, j - 1];
+                    if (dx > 0 && isP(place[dx - 1][dy])) return false;
+                    if (dx < 4 && isP(place[dx + 1][dy])) return false;
+                    if (dy > 0 && isP(place[dx][dy - 1])) return false;
+                }
+                
+                if (j < 4 && isTable(place[i][j + 1])) {
+                    const [dx, dy] = [i, j + 1];
+                    if (dx > 0 && isP(place[dx - 1][dy])) return false;
+                    if (dx < 4 && isP(place[dx + 1][dy])) return false;
+                    if (dy < 4 && isP(place[dx][dy + 1])) return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
+function isTable(el) {
+    return el === "O";
+}
+
+function isP(el) {
+    return el === "P";
+}
