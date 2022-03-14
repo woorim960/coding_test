@@ -10,3 +10,10 @@ WHERE NAME REGEXP "^(Lucy|Ella|Pickle|Rogan|Sabrina|Mitty)";
 # FROM ANIMAL_INS
 # WHERE NAME regexp "^(Lucy|Ella|Pickle|Rogan|Sabrina|Mitty)$"
 # ORDER BY ANIMAL_ID;
+
+
+# 이름에 el이 들어가는 동물 찾기
+SELECT ANIMAL_ID, NAME FROM ANIMAL_INS
+# WHERE ANIMAL_TYPE = "Dog" AND NAME LIKE "%el%" 
+WHERE ANIMAL_TYPE = "Dog" AND NAME REGEXP "el"
+ORDER BY NAME ASC;
